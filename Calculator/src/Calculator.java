@@ -18,7 +18,7 @@ public class Calculator {
         System.out.println("Type Arabic numerals expression: ");
         ArabicNumerals.printArabic(result);
         System.out.println("Type Roman numerals expression: ");
-        System.out.println("Answer: " + RomanNumerals.printRoman(result));
+        System.out.println(RomanNumerals.printRoman(result));
 
         }
     }

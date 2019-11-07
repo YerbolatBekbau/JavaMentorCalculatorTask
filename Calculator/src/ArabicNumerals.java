@@ -1,17 +1,16 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLOutput;
 
-public class ArabicNumerals {
+class ArabicNumerals {
 
-public static int printArabic (int result) throws IOException {
+static int printArabic(int result) throws IOException {
 
-    BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     Operations operations = new Operations();
+    String input = "";
 
-    System.out.println("Type an expression: ");
-    String calculation = input.readLine();
-    String[] numbers = calculation.split(" +");
+    String[] numbers = Operations.expressionToClasses(input).split(" +");
 
     int firstNum = Integer.parseInt(numbers[0]);
     int secondNum = Integer.parseInt(numbers[2]);

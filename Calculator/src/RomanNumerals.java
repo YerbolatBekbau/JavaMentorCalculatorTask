@@ -3,16 +3,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class RomanNumerals {
+class RomanNumerals {
 
-    public static int getResult (int result) throws IOException {
+    private static int getResult(int result) throws IOException {
 
         Operations operations = new Operations();
-        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        String input = "";
 
-        System.out.println("Type an expression: ");
-        String stringExpression = input.readLine();
-        String[] numbers = stringExpression.split(" +");
+        String[] numbers = Operations.expressionToClasses(input).split(" +");
 
         String fNum = numbers[0];
         String sNum = numbers[2];
@@ -41,7 +39,6 @@ public class RomanNumerals {
         if (sNum.equals("IX")) secondNum = 9;
         if (sNum.equals("X")) secondNum = 10;
 
-
         if ((firstNum <= 10 && firstNum >= 1) && (secondNum <= 10 && secondNum >= 1)) {
 
             if (numbers[1].equals("+")) {
@@ -55,7 +52,6 @@ public class RomanNumerals {
             }
             if (numbers[1].equals("/")) {
                 result = operations.dividing(firstNum, secondNum);
-
             }
         }
         else throw new IllegalArgumentException();
@@ -66,7 +62,7 @@ public class RomanNumerals {
                                                      "V", "IV", "I"};
     private static int[] values = new int[] {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};//внести сюда значение result
 
-    public static String printRoman (int value) throws IOException {
+    static String printRoman(int value) throws IOException {
         int result = 0;
         value = getResult(result);
 
